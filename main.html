@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking Application</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="icon" href="assets/logo.jpg">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="assets/logo.jpg" alt="Bank Logo">
+                <h1>Indian Bank</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#loans">Loans</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="login.html" id="loginBtn" class="login-btn">Login</a></li>
+                    <li><a href="#" id="profileBtn" class="profile-btn" style="display:none;">Profile</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-content">
+            <h2>Welcome to Indian Bank</h2>
+            <p>Your trusted partner for financial solutions.</p>
+            <a href="#services" class="cta-btn">Explore Our Services</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="service-cards">
+                <div class="card">
+                    <img src="assets/Loan_Services.png" alt="Loan">
+                    <h3>Loan Services</h3>
+                    <p>Get personalized loan options to meet your needs.</p>
+                </div>
+                <div class="card">
+                    <img src="assets/saving.jpg" alt="Savings">
+                    <h3>Savings Account</h3>
+                    <p>Grow your savings with our high-interest accounts.</p>
+                </div>
+                <div class="card">
+                    <img src="assets/investment.png" alt="Investment">
+                    <h3>Investments</h3>
+                    <p>Make your money work for you with our investment plans.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loan History Section -->
+    <section id="loans">
+        <div class="container">
+            <h2>Loan History</h2>
+            <div class="dashboard">
+                <form id="searchForm">
+                    <label for="propertyNumber">Property Number:</label>
+                    <input type="text" id="propertyNumber" name="propertyNumber" required>
+                    <label for="ownerName">Property Owner:</label>
+                    <input type="text" id="ownerName" name="ownerName" required>
+                    <button type="submit">Search</button>
+                </form>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Loan ID</th>
+                            <th>Property Number</th>
+                            <th>Property Owner</th>
+                            <th>Loan Amount</th>
+                            <th>Loan Status</th>
+                            <th>Loan Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="loanTableBody">
+                        <!-- Data will be dynamically populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Email: <a href="mailto:contact@bankname.com">contact@bankname.com</a></p>
+            <p>Phone: <a href="tel:+18001234567">+1-800-123-4567</a></p>
+            <p>Address: 123 Bank St, Financial City, FC 12345</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Indian Bank. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="./scripts/script.js"></script>
+    <script>
+        // Check if user is logged in and update UI accordingly
+        window.onload = function() {
+            var userProfile = JSON.parse(localStorage.getItem('userProfile'));
+            if (userProfile) {
+                document.getElementById('loginBtn').style.display = 'none';
+                var profileBtn = document.getElementById('profileBtn');
+                profileBtn.style.display = 'inline-block';
+                profileBtn.innerHTML = `
+                    <img src="${userProfile.imageUrl}" alt="Profile" class="profile-pic">
+                    ${userProfile.name}
+                `;
+            }
+        };
+    </script>
+</body>
+</html>
