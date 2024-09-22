@@ -64,6 +64,7 @@ document.getElementById('searchForm').addEventListener('submit', function(event)
         { id: 'L0048', propertyNumber: 'P0048', owner: 'Jyothi', amount: '31159', status: 'Rejected', date: '2023-07-08' },
         { id: 'L0049', propertyNumber: 'P0049', owner: 'pragathi', amount: '13196', status: 'Pending', date: '2022-02-04' }
     ];
+
     
 
     // Filter data based on input
